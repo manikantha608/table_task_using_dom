@@ -10,12 +10,30 @@
             text-align: center;
             border-collapse: collapse;
         }
+        table{
+          margin: 40px 10px;
+          background-color: #d7d7d7;
+        }
     </style>
   </head>
   <body>
-      
+      <table id="main">
+        <tr>
+          <td>Id</td>
+          <td>Title</td>
+          <td>Description</td>
+          <td>price</td>
+          <td>DiscountPercentage</td>
+          <td>Rating</td>
+          <td>Stock</td>
+          <td>Brand</td>
+          <td>Category</td>
+          <td>Product</td>
+        </tr>
+      </table>
     <script>
       var products = [
+        
         {
           id: 1,
           title: "iPhone 9",
@@ -428,9 +446,10 @@
         },
       ];
     
-    var table = document.createElement("table")
-    table.setAttribute("id","main")
-    document.body.appendChild(table)
+   
+
+    for(i=0;i<=products.length;i++){
+     var table = document.getElementById("main")
 
     var tr1=document.createElement("tr")
 
@@ -444,6 +463,11 @@
     var td8=document.createElement("td")
     var td9=document.createElement("td")
     var td10=document.createElement("td")
+    var img = document.createElement("img")
+    img.setAttribute("src",products[i].thumbnail)
+    img.setAttribute("width","150px")
+    img.setAttribute("height","150px")
+    td10.appendChild(img)
     tr1.appendChild(td1)
     tr1.appendChild(td2)
     tr1.appendChild(td3)
@@ -455,39 +479,17 @@
     tr1.appendChild(td9)
     tr1.appendChild(td10)
 
-    td1.innerText="Id"
-    td2.innerText="Title"
-    td3.innerText="Description"
-    td4.innerText="Price"
-    td5.innerText="DiscountPercentage"
-    td6.innerText="Rating"
-    td7.innerText="Stock"
-    td8.innerText="Brand"
-    td9.innerText="Category"
-    td10.innerText="Product"
+    td1.innerText=products[i].id
+    td2.innerText=products[i].title
+    td3.innerText=products[i].description
+    td4.innerText=products[i].price
+    td5.innerText=products[i].discountPercentage
+    td6.innerText=products[i].rating
+    td7.innerText=products[i].stock
+    td8.innerText=products[i].brand
+    td9.innerText=products[i].category
      table.appendChild(tr1)
-     table.style.textAlign="center"
-     table.style.backgroundColor=" #d7d7d6"
-     table.style.margin=" 20px"
-
-       var table = document.getElementById("main");
-      for (let i = 0; i < products.length; i++) {
-        var row = `
-            <tr>
-                <td>${products[i].id}</td>
-                <td>${products[i].title}</td>
-                <td>${products[i].description}</td>
-                <td>${products[i].price}</td>
-                <td>${products[i].discountPercentage}</td>
-                <td>${products[i].rating}</td>
-                <td>${products[i].stock}</td>
-                <td>${products[i].brand}</td>
-                <td>${products[i].category}</td>
-                <td><img src=${products[i].thumbnail} width=150px height=150px></td>
-            </tr>
-            `;
-        table.innerHTML += row;
-      }
+    }
     </script>
   </body>
 </html>
