@@ -10,31 +10,10 @@
             text-align: center;
             border-collapse: collapse;
         }
-        table{
-            margin: 20px;
-            background-color: #d7d7d6;
-        }
-        img{
-            width: 150px;
-            height: 100px;
-        }
     </style>
   </head>
   <body>
-      <table id="main">
-        <tr>
-          <td>Id</td>
-          <td>Title</td>
-          <td>Description</td>
-          <td>Price</td>
-          <td>DiscountPercentage</td>
-          <td>Rating</td>
-          <td>Stock</td>
-          <td>Brand</td>
-          <td>Category</td>
-          <td>Images</td>
-        </tr>
-      </table>
+      
     <script>
       var products = [
         {
@@ -448,7 +427,50 @@
             "https://cdn.dummyjson.com/product-images/30/thumbnail.jpg",
         },
       ];
-      var table = document.getElementById("main");
+    
+    var table = document.createElement("table")
+    table.setAttribute("id","main")
+    document.body.appendChild(table)
+
+    var tr1=document.createElement("tr")
+
+    var td1=document.createElement("td")
+    var td2=document.createElement("td")
+    var td3=document.createElement("td")
+    var td4=document.createElement("td")
+    var td5=document.createElement("td")
+    var td6=document.createElement("td")
+    var td7=document.createElement("td")
+    var td8=document.createElement("td")
+    var td9=document.createElement("td")
+    var td10=document.createElement("td")
+    tr1.appendChild(td1)
+    tr1.appendChild(td2)
+    tr1.appendChild(td3)
+    tr1.appendChild(td4)
+    tr1.appendChild(td5)
+    tr1.appendChild(td6)
+    tr1.appendChild(td7)
+    tr1.appendChild(td8)
+    tr1.appendChild(td9)
+    tr1.appendChild(td10)
+
+    td1.innerText="Id"
+    td2.innerText="Title"
+    td3.innerText="Description"
+    td4.innerText="Price"
+    td5.innerText="DiscountPercentage"
+    td6.innerText="Rating"
+    td7.innerText="Stock"
+    td8.innerText="Brand"
+    td9.innerText="Category"
+    td10.innerText="Product"
+     table.appendChild(tr1)
+     table.style.textAlign="center"
+     table.style.backgroundColor=" #d7d7d6"
+     table.style.margin=" 20px"
+
+       var table = document.getElementById("main");
       for (let i = 0; i < products.length; i++) {
         var row = `
             <tr>
@@ -461,7 +483,7 @@
                 <td>${products[i].stock}</td>
                 <td>${products[i].brand}</td>
                 <td>${products[i].category}</td>
-                <td><img src=${products[i].thumbnail}></td>
+                <td><img src=${products[i].thumbnail} width=150px height=150px></td>
             </tr>
             `;
         table.innerHTML += row;
